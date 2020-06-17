@@ -28,7 +28,7 @@ plot_ggplot <- function(data, linewidth, title, show_labels, background_lines) {
   gg <- ggplot2::ggplot(data, ggplot2::aes_(x = ~start, y = ~y, xend = ~end, yend = ~y, color = ~I(col))) +
     ggplot2::ggtitle(title) + ggplot2::labs(x = NULL, y = NULL) +
     ggplot2::scale_y_continuous(breaks = y_ticks, labels = unique(data$group)) +
-    ggplot2::theme_classic() +
+    ggplot2::theme_classic(base_size = 20, base_family="Constantia") +
     ggplot2::theme(
       plot.title = ggplot2::element_text(hjust = 0.5),
       axis.ticks.y = ggplot2::element_blank(),
@@ -66,7 +66,8 @@ plot_ggplot <- function(data, linewidth, title, show_labels, background_lines) {
     # TODO: up/down alignment of event labels
     gg <- gg +
       ggplot2::geom_label(mapping = ggplot2::aes_(colour = ~I(fontcol), label = ~label), data = ranges) + #, hjust=0.5) +
-      ggplot2::geom_label(mapping = ggplot2::aes_(colour = ~I(fontcol), label = ~label), data = event_dat) #, hjust=-0.1)
+      ggplot2::geom_label(mapping = ggplot2::aes_(colour = ~I(fontcol), label = ~label), data = event_dat) #, hjust=-0.1)+
+      ggplot2::geom_text(size = 10)
   }
 
   return(gg)
