@@ -67,7 +67,7 @@ plot_ggplot <- function(data, linewidth, title, show_labels, background_lines) {
     gg <- gg +
       ggplot2::geom_label(mapping = ggplot2::aes_(colour = ~I(fontcol), label = ~label), data = ranges) + #, hjust=0.5) +
       ggplot2::geom_label(mapping = ggplot2::aes_(colour = ~I(fontcol), label = ~label), data = event_dat) #, hjust=-0.1)+
-      ggplot2::geom_text(size = 10)
+      ggplot2::geom_text(size = 15)
   }
 
   return(gg)
